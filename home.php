@@ -17,7 +17,7 @@
 	}
 
 	$port = fopen("COM5", "w+"); 
-	// // sleep(1);
+	// sleep(1);
 	usleep( 250000 );
 ?> 
 
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 <head>
-	<title></title>
+	<title>iot</title>
 </head>
 <body>
 
@@ -105,9 +105,7 @@
 								$newStatus = "OFF";
 								$sql="UPDATE `light` SET status='$newStatus' WHERE lid='$id'";
 								mysqli_query($con, $sql);
-								$now = date("Y-m-d H:i:s");
-								$sql="INSERT INTO `lightusage`(`usageid`, `datetime`, `status`, `lid`) VALUES ('','$now','$newStatus','$id')";
-								mysqli_query($con, $sql);
+
 								if($id == 1){
 			    				fwrite($port, "aa");
 				    			}if($id == 2){
@@ -124,11 +122,8 @@
 								$newStatus = "ON";
 								$sql="UPDATE `light` SET status='$newStatus' WHERE lid='$id'";
 								mysqli_query($con, $sql);
-								$now = date("Y-m-d H:i:s");
-								$sql="INSERT INTO `lightusage`(`usageid`, `datetime`, `status`, `lid`) VALUES ('','$now','$newStatus','$id')";
-								mysqli_query($con, $sql);
 								if($id == 1){
-			    					fwrite($port, "a");
+			    				fwrite($port, "a");
 				    			}if($id == 2){
 				    				fwrite($port, "b");
 				    			}if($id == 3){
