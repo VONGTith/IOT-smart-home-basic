@@ -1,0 +1,479 @@
+body{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+.bg1{
+	position: relative;
+	background-size: cover;
+	height: 100vh;
+	width: 200vh;
+}
+section{
+	margin: 0;
+	padding: 0;
+	width: 200vh;
+	height: 100vh;
+	position: absolute;
+	background: url(Background2.png);
+	top: 0px;
+	background-size: 130%;
+}
+.bg3{
+	position: absolute;
+	background-size: cover;
+	height: 100vh;
+	top: 0px;
+	width: 200vh;
+}
+.menutitle img{
+	position: absolute;
+	top: 10px;
+	width: 300px;
+	height: 65px;
+	left: 50%;
+	transform: translate(-50%,0%);
+}
+.clock{
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translate(-50%,0%);
+	color: #fff;
+	font-size: 50px;
+	font-family: 'Fjalla One', sans-serif;
+	text-shadow: 0 4px 6px rgb(0 ,0 ,0 ,.5);
+}
+
+.tableBox .menuBox .fas,.tableBox .menuBox .far{
+	position: absolute;
+	color: #fff;
+	top: 50%;
+	left: 50%;
+	font-size: 50px;
+	transform: translate(-50%,-50%); 
+}
+
+.tableBox .menuBox:hover .fas,.tableBox .menuBox:hover .far{
+	color: #ff0000;
+}
+
+.tableBox .menuBox .material-icons{
+	position: absolute;
+	color: #fff;
+	top: 50%;
+	left: 50%;
+	font-size: 50px;
+	transform: translate(-50%,-50%);
+}
+
+.tableBox .menuBox:hover .material-icons{
+	color: #ff0000;
+}
+
+.tableBox .menuBox p{
+	position: relative;
+	top: 100px;
+	left: 0px;
+	color: #fff;
+	font-size: 13px;
+	text-align: center;
+	text-shadow: 0 4px 6px rgb(0 ,0 ,0 ,.5);
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height: 400px;
+    background: linear-gradient(45deg, #3c65b47a, #00f1ff8c);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #3c65b47a;
+    width: 800px;
+}
+.modal-content:before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, #3c65b47a, #00f1ff8c);
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: blur(10px);
+}
+.close,.closeHome,.closeTemperature {
+	position: absolute;
+    color: #fff;
+    right: 10px;
+    top: 0px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus, .closeHome:hover,
+.closeHome:focus, .closeTemperature:hover,
+.closeTemperature:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*.checkbox{
+	position: absolute;
+	top: 155px;
+	left: 495px;
+	width: 100px;
+	height: 50px;
+	border-radius: 25px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.checkbox .inner{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	background: red;
+	border-radius: 20px; 
+}
+.checkbox .inner .toggle{
+	position: absolute;
+	top: -3px;
+	left: -3px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: #fff;
+	transform: .5s;
+}
+/*.checkbox .inner .toggle:before{
+	content: 'OFF';
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	right: 4px;
+	bottom: 4px;
+	background: linear-gradient(0deg, #007ce0, #117cae);
+	border-radius: 50%;
+	text-align: center;
+	font-size: 10px;
+	line-height: 28px;
+	color: #ff0000;
+}
+.checkbox .inner.active .toggle:before{
+	content: 'ON';
+	color: #00d22d;
+}*/
+.checkbox .inner.active .toggle{
+	left: 47px;
+	background: #fff;
+}
+.checkbox .inner.active{
+	background: #00d22d;
+}
+.modal .modal-content .material-icons{
+	font-size: 100px;
+	position: absolute;
+	top: 10px;
+	left: -360px;
+	color: #fff;
+}
+.tableBox ul{
+	position: absolute;
+	top: 600px;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+}
+.tableBox ul li{
+	list-style: none;
+}
+.tableBox ul li a{
+	text-decoration: none;
+}
+.tableBox ul li a{
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100px;
+	border-radius: 40%;
+	display: inline-block;
+	margin: 25px;
+	box-shadow: 0 4px 6px rgb(0 ,0 ,0 ,.5);
+	cursor: pointer;
+}
+.tableBox ul li:nth-child(1) a{
+	background: linear-gradient(0deg, #ff0000, #b00000);
+	margin-left: 0px;
+}
+.tableBox ul li:nth-child(2) a{
+	background: linear-gradient(0deg, #ff8400, #ffd534);
+}
+.tableBox ul li:nth-child(3) a{
+	background: linear-gradient(0deg, #00fff6, #009eb0);
+}
+.tableBox ul li:nth-child(4) a{
+	background: linear-gradient(0deg, #0087ff, #a034ff);
+}
+.tableBox ul li:nth-child(5) a{
+	background: linear-gradient(0deg, #fd00ff, #b00047);
+}
+.tableBox ul li:nth-child(6) a{
+	background: linear-gradient(0deg, #726a6a, #383838);
+	margin-right: 0px;
+}
+.tableBox a:nth-child(even):hover{
+	background: #fff;
+}
+.tableBox a:nth-child(odd):hover{
+	background: #fff;
+}
+.modal .modal-content .selectSchedule{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 400px;
+	height: 200px;
+	border-bottom: 1px solid #fff;
+}
+.modal .modal-content h2{
+	color: #fff;
+	text-align: center;
+	margin: 5px;
+}
+.modal .modal-content .selectSchedule h2{
+	color: #fff;
+	text-align: center;
+	margin: 5px;
+}
+.modal .modal-content .selectSchedule span p{
+	color: #fff;
+	position: relative;
+	left: 77px;
+	margin: 2px;
+	text-align: left;
+	font-size: 12px;
+}
+.modal .modal-content .selectSchedule span #date{
+	position: relative;
+	border:3px solid #0563af;
+	color: #fff;
+	background: #0563af;
+	padding: 5px;
+	height: 20px;
+	width: 125px;
+	outline: none;
+	top: 0px;
+	left: 77px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2)
+}
+.modal .modal-content .selectSchedule span #time{
+	position: relative;
+	left: -5px;
+	border:3px solid #0563af;
+	color: #fff;
+	background: #0563af;
+	padding: 5px;
+	height: 20px;
+	width: 90px;
+	outline: none;
+	top: 0px;
+	left: 73px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2)
+}
+.modal .modal-content .selectSchedule span .submit{
+	position: absolute;
+	left: 150px;
+	top: 154px;
+	outline: none;
+	text-align: center;
+	color: #fff;
+	background: #007ce0;
+	border: none;
+	width: 100px;
+	height: 35px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2)
+}
+.modal .modal-content .selectSchedule span .submit:hover{
+	cursor: pointer;
+}
+.modal .modal-content .roomSelection{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 400px;
+	height: 200px;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+}
+.modal .modal-content .roomSelection #roomSelection{
+	color: #fff;
+	position: absolute;
+	padding: 10px;
+	border: none;
+	width: 150px;
+	height: 40px;
+	left: 50px;
+	margin-top: 75px;
+	background: #0563af;
+	font-size: 18px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	outline: none;
+	/*-webkit-appearance: button;*/
+}
+
+.modal-content .tableOfprice{
+	position: absolute;
+	width: 800px;
+	height: 200px;
+	bottom: 20px;
+	left: 20px;
+}
+
+.modal-content .tableOfprice table{
+	border: none;
+}
+.modal-content .tableOfprice .price{
+	position: absolute;
+	width: 800px;
+	top: 30px;
+}
+.modal-content .tableOfprice .price tr th{
+	color: #f00;
+	font-size: 16px;
+	text-align: center;
+	padding: 5px;
+	border: none;
+
+}
+.modal-content .tableOfprice .price tr td{
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	border-left: 1px solid #fff;
+	padding: 5px;
+}
+.modal-content .tableOfprice .price tr td:nth-child(odd){
+	background: #00000057;
+}
+.modal-content .tableOfprice .price tr td:nth-child(even){
+	background: #6640406b;
+}
+
+.homePlan{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 800px;
+	height: 400px;
+}
+.homePlan img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.loingPage{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 300px;
+	height: 315px;
+	background: linear-gradient(45deg, #3c65b47a, #00f1ff8c);
+	border-radius: 20px;
+	border: 2px solid #fff
+}
+.loingPage img{
+	position: relative;
+	top: 10px;
+	width: 100px;
+	height: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+.loingPage p{
+	position: relative;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	margin: 10px;
+	font-family: 'Fjalla One', sans-serif;
+	text-shadow: 0 4px 4px rgb(0 ,0 ,0 ,.5)
+}
+.loingPage .username,.userpassword{
+	position: relative;
+	width: 250px;
+	text-decoration: none;
+	outline: none;
+	height: 20px;
+	margin-bottom: 15px;
+	border: none;
+	background: #fff;
+	margin-left: 15px;
+	margin-right: 15px;
+	border-radius: 10px;
+	padding: 10px;
+	color: #0003;
+	box-shadow: 0 4px 4px rgb(0 ,0 ,0 ,.2)
+}
+.loingPage .loginSubmit{
+	position: relative;
+	background: #f00;
+	color: #fff;
+	font-size: 20px;
+	border: none;
+	font-family: 'Fjalla One', sans-serif;
+	text-align: center;
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 100px;
+	margin-right: 100px;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+.modal .modal-content i{
+	color: #fff;
+	font-size: 200px;
+	position: absolute;
+	margin-top: 85px;
+	left: 300px;
+}
+.modal .modal-content .number{
+	color: #fff;
+	position: absolute;
+	font-size: 100px;
+	top: 30px;
+	right: 285px;
+}
+.modal .modal-content .number1{
+	color: #fff;
+	position: absolute;
+	font-size: 30px;
+	top: 60px;
+	right: 265px;
+}
+.modal .modal-content .number2{
+	color: #fff;
+	position: absolute;
+	font-size: 70px;
+	top: 18px;
+	right: 215px;
+}
