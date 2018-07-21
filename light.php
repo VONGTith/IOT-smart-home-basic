@@ -53,7 +53,7 @@
 
 			<a href="./room.php"><span class="closeHome">&times;</span></a>
 			<h2>Light Control By Room</h2>
-
+            <h2>tith</h2>
    			<div class="roomSelection">
    				<?php 
 
@@ -84,7 +84,7 @@
 
 						$roomId .= "<p>Room $Id</p>";
 
-								$roomId .= "<form class='ONnOFF' action='./light.php' method='POST' id='myDIV'>
+								$roomId .= "<form class='ONnOFF' action='./dolight.php' method='POST' id='myDIV'>
 									<input type='radio' name='status' id='lightON' value='ON' onClick='this.form.submit()'><label for='lightON' class='btn'>ON</label></input>
 									<input type='radio' name='status' id='lightOFF' value='OFF' onClick='this.form.submit()'><label for='lightOFF' class='btn'>OFF</label></input>
 									<input type='hidden' name='lid' value='$lid'>
@@ -122,11 +122,6 @@
 			    	}
 			    	
 					echo $roomId;
-				// sleep(2);
-				// $string = fread($port,7);
-				// echo "</br>";
-				// echo $string;
-				// fclose($port);
 				?>
 
 				<?php 
@@ -169,33 +164,49 @@
     			<table class="price">
     				<tr>
     					<th></th>
-    					<th>Monday</th>
-    					<th>Tuesday</th>
-    					<th>Wednesday</th>
-    					<th>Thursday</th>
-    					<th>Friday</th>
-    					<th>Saturday</th>
-    					<th>Sunday</th>
+						<?php
+							$string="";
+							$now = "2018-07-08";//date("Y-m-d");
+							$lastWeek = "2018-07-01";//date('Y-m-d', strtotime('-7 days'));
+							$sql="select * from daily where date<'$now' and date>='$lastWeek'";
+							$result = mysqli_query($con,$sql);
+							while ($row = mysqli_fetch_object($result)) {
+								$date=$row->date;
+								$string.="<td>";
+								$string.=$date."</td>";
+							}
+							echo $string;
+						?>
     				</tr>
     				<tr>
-    					<th>KWH</th>
-    					<td>2</td>
-    					<td>2</td>
-    					<td>2</td>
-    					<td>2</td>
-    					<td>2</td>
-    					<td>2</td>
-    					<td>2</td>
+    					<th>KW</th>
+						<?php
+						$string="";
+						$now = "2018-07-08";//date("Y-m-d");
+						$lastWeek = "2018-07-01";//date('Y-m-d', strtotime('-7 days'));
+						$sql="select * from daily where date<'$now' and date>='$lastWeek'";
+						$result = mysqli_query($con,$sql);
+						while($row = mysqli_fetch_object($result)){
+							$string.="<td>";
+							$string.=$row->kw."</td>";
+						}
+						echo $string;
+						?>
     				</tr>
     				<tr>
     					<th>Price</th>
-    					<td>2 000r</td>
-    					<td>2 000r</td>
-    					<td>2 000r</td>
-    					<td>2 000r</td>
-    					<td>2 000r</td>
-    					<td>2 000r</td>
-    					<td>2 000r</td>
+						<?php
+						$string="";
+						$now = "2018-07-08";//date("Y-m-d");
+						$lastWeek = "2018-07-01";//date('Y-m-d', strtotime('-7 days'));
+						$sql="select * from daily where date<'$now' and date>='$lastWeek'";
+						$result = mysqli_query($con,$sql);
+						while($row = mysqli_fetch_object($result)){
+							$string.="<td>";
+							$string.=($row->kw*800)."</td>";
+						}
+						echo $string;
+						?>
     				</tr>
     			</table>
     		</div>

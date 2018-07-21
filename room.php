@@ -1,6 +1,11 @@
 <?php
+	$port = fopen("COM5", "w+"); 
+	usleep( 250000 );
+	$string = fread($port,7);
+	fclose($port);
 	require_once("./config.php");
 	$con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	mysqli_query($con, "UPDATE `teperature` SET `id`=0,`temp`=$string WHERE id=0");
 	$result = mysqli_query($con, "select * from light");
 	$i = 0;
 
